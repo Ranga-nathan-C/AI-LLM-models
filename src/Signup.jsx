@@ -82,15 +82,15 @@ const Signup = () => {
                 <div className="modal-body p-5 pt-0">
                     <form className="">
                     <div className="form-floating mb-3">
-                        <input type="email" className="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
+                        <input type="email" className="form-control rounded-3" id="floatingInput" placeholder="name@example.com" required />
                         <label htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Password" />
+                        <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Password" required />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Confirm Password" />
+                        <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Confirm Password" required/>
                         <label htmlFor="floatingPassword">Confirm Password</label>
                     </div>
                     <div className="form-check text-start my-3 ">

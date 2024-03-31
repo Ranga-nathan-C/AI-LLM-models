@@ -1,21 +1,30 @@
-import ai from './assets/ai1.jpg'
-import ai1 from './assets/ai3.jpg'
-import ai4 from './assets/ai.jpg'
-import ai5 from './assets/ai4.png'
-import ai6 from './assets/ai5.jpg'
-import ai7 from './assets/ai7.png'
-import ai8 from './assets/ai8.png'
-import ai9 from './assets/ai9.png'
-import ai10 from './assets/ai10.png'
-import ai11 from './assets/ai11.webp'
-import ai12 from './assets/ai12.jpeg'
-import ai13 from './assets/ai13.jpg'
-import ai14 from './assets/ai14.webp'
+import ai from "./assets/ai1.jpg";
+import ai1 from "./assets/ai3.jpg";
+import ai4 from "./assets/ai.jpg";
 
-
-
+import { useEffect, useState } from "react";
 
 export default function Home() {
+    const [data, setdata] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const response = await fetch(
+            "https://my-json-server.typicode.com/Ranga-nathan-C/Ai-models/models"
+            );
+            if (!response.ok) {
+            throw new Error("Error fetching data");
+            }
+            const data = await response.json();
+            console.log(data);
+            setdata(data);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+        };
+
+        fetchData();
+    }, []);
     return (
         <div className="container-fulid bg1">
         <nav
@@ -57,21 +66,41 @@ export default function Home() {
             <div className="collapse navbar-collapse" id="navbarsExample04">
                 <ul className="navbar-nav me-auto   mb-md-0">
                 <li className="nav-item  ">
-                    <a className="nav-link nav1 nav2  link-light active" aria-current="page" href="/">
+                    <a
+                    className="nav-link nav1 nav2  link-light active"
+                    aria-current="page"
+                    href="/"
+                    >
                     Home
                     </a>
                 </li>
                 <li className="nav-item nav2">
-                    <a className="nav-link  link-dark" href="/Liked">Liked
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                    <a className="nav-link  link-dark" href="/Liked">
+                    Liked
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-star mb-1"
+                        viewBox="0 0 16 16"
+                    >
+                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
                     </svg>
                     </a>
                 </li>
                 <li className="nav-item nav2">
-                    <a className="nav-link link-dark " href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    <a className="nav-link link-dark " href="/Favourite">
+                    Favourite
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-heart"
+                        viewBox="0 0 16 16"
+                    >
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                     </svg>
                     </a>
                 </li>
@@ -85,304 +114,266 @@ export default function Home() {
                 />
                 </form>
                 <form className="col-md-3   text-end">
-                    
-                <a  href="/Login" className="btn btn-primary btn-sm px-4 login  w-30 h-30 me-md-2   fw-bold" >Login</a>
-                <a  href="/Signup" className="btn btn-primary btn-sm px-4  w-30 h-30 me-md-2  fw-bold" >Sign up</a>
+                <a
+                    href="/Login"
+                    className="btn btn-primary btn-sm px-4 login  w-30 h-30 me-md-2   fw-bold"
+                >
+                    Login
+                </a>
+                <a
+                    href="/Signup"
+                    className="btn btn-primary btn-sm px-4  w-30 h-30 me-md-2  fw-bold"
+                >
+                    Sign up
+                </a>
                 </form>
             </div>
             </div>
         </nav>
-        <div id="myCarousel" className="carousel slide mb-6" data-bs-ride="carousel">
-        <div className="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-label="Slide 1" aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" className=""></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" className=""></button>
+        <div
+            id="myCarousel"
+            className="carousel slide mb-6"
+            data-bs-ride="carousel"
+        >
+            <div className="carousel-indicators">
+            <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="0"
+                className="active"
+                aria-label="Slide 1"
+                aria-current="true"
+            ></button>
+            <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+                className=""
+            ></button>
+            <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+                className=""
+            ></button>
             </div>
             <div className="carousel-inner">
             <div className="carousel-item active">
-                <img src={ai} className='img' alt="" />
+                <img src={ai} className="img" alt="" />
                 <div className="container">
                 <div className="carousel-caption text-start">
                     <h1>Artificial Intelligence</h1>
-                    <p className="opacity-75">AI: Machines mimicking human intelligence.</p>
-                    <p><a className="btn btn-lg btn-primary" href="https://en.wikipedia.org/wiki/Artificial_intelligence">Learn more</a></p>
+                    <p className="opacity-75">
+                    AI: Machines mimicking human intelligence.
+                    </p>
+                    <p>
+                    <a
+                        className="btn btn-lg btn-primary"
+                        href="https://en.wikipedia.org/wiki/Artificial_intelligence"
+                    >
+                        Learn more
+                    </a>
+                    </p>
                 </div>
                 </div>
             </div>
             <div className="carousel-item">
-            <img src={ai1} className='img' alt="" />
+                <img src={ai1} className="img" alt="" />
                 <div className="container">
                 <div className="carousel-caption">
                     <h1>AI Tools and Frameworks</h1>
                     <p>Explore popular AI development tools and frameworks.</p>
-                    <p><a className="btn btn-lg btn-primary" href="https://5ly.co/blog/best-ai-frameworks/">Explore it</a></p>
+                    <p>
+                    <a
+                        className="btn btn-lg btn-primary"
+                        href="https://5ly.co/blog/best-ai-frameworks/"
+                    >
+                        Explore it
+                    </a>
+                    </p>
                 </div>
                 </div>
             </div>
             <div className="carousel-item">
-            <img src={ai4} className='img' alt="" />
+                <img src={ai4} className="img" alt="" />
                 <div className="container">
                 <div className="carousel-caption text-end">
                     <h1>Getting Started with AI</h1>
-                    <p>Learn from resources and guidance for individuals or businesses looking to start their AI journey.</p>
-                    <p><a className="btn btn-lg btn-primary" href="https://microsoft.github.io/AI-For-Beginners/">Resources</a></p>
+                    <p>
+                    Learn from resources and guidance for individuals or
+                    businesses looking to start their AI journey.
+                    </p>
+                    <p>
+                    <a
+                        className="btn btn-lg btn-primary"
+                        href="https://microsoft.github.io/AI-For-Beginners/"
+                    >
+                        Resources
+                    </a>
+                    </p>
                 </div>
                 </div>
             </div>
             </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide="prev"
+            >
+            <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
             </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide="next"
+            >
+            <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
             </button>
-            </div>
-            <div className="grid-container mt-5 ml-5">
-            <div className="card">
-                <img src={ai5} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai6} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai7} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai8} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai9} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai10} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai11} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai12} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai13} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>
-            <div className="card">
-                <img src={ai14} className="card-img-top h-50" alt="..." />
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <div className="row">
-                    <div className='col'><a className="nav-link spann link-light" href='/Favourite'>Favourite
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                    </svg>
-                    </a></div>
-                    <div className='col'><a className="nav-link spann1 link-light" href="/Liked">Like
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star mb-1" viewBox="0 0 16 16">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    </a></div>
-                </div>
-                <a href="https://www.imagetotext.info/" className="btn spann btn-primary">Try it out</a>
-                </div>
-            </div>        
-            </div>
-            <div className="container">
-    <footer className="py-5">
-    <div className="row">
-    <div className="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-    </div>
-
-    <div className="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul className="nav flex-column">
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-    </div>
-    <div className="col-md-5 offset-md-1 mb-3">
-        <form>
-        <p>Contact Us</p>
-        <h6>Phone no: 91+ 123 456789</h6>
-        <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-            <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
-            <button className="btn btn-primary" type="button" >Send</button>
         </div>
-        </form>
-    </div>
-    <p>© 2024 Company, Inc. All rights reserved.</p>
-
-    </div>
-    </footer>
-</div>
+        <div className="grid-container row-sm-12 mt-5 ml-5">
+            {data.map((data) => (
+            <div className="card" key={data.id}>
+                
+                <img src={data.image} className="card-img-top h-50" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{data.title}</h5>
+                    <p className="card-text">{data.desc}</p>
+                    <div className="row">
+                    <div className="col">
+                        <a className="nav-link spann link-light" href="/Favourite">
+                        Favourite
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            className="bi bi-heart"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                        </svg>
+                        </a>
+                    </div>
+                    <div className="col">
+                        <a className="nav-link spann1 link-light" href="/Liked">
+                        Like
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            className="bi bi-star mb-1"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                        </svg>
+                        </a>
+                    </div>
+                    <div className="col">
+                    <a href={data.tryitout} className="btn spann btn-primary">
+                    Try it out
+                    </a>
+                    </div>
+                    </div>
+                </div>
             </div>
-        
-    
+            ))}
+        </div>
+        <div className="container">
+            <footer className="py-5">
+            <div className="row">
+                <div className="col-6 col-md-2 mb-3">
+                <h5>Connect</h5>
+                <ul className="nav flex-column">
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        Home
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        About
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        AI Models
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        FAQs
+                    </a>
+                    </li>
+                </ul>
+                </div>
+
+                <div className="col-6 col-md-2 mb-3">
+                <h5>Explore</h5>
+                <ul className="nav flex-column">
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        AI evolution
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        Large Language Models
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        Advanced ML Algorithms
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        Deep Learning 
+                    </a>
+                    </li>
+                    <li className="nav-item mb-2">
+                    <a href="#" className="nav-link p-0 text-body-secondary">
+                        About
+                    </a>
+                    </li>
+                </ul>
+                </div>
+                <div className="col-md-5 offset-md-1 mb-3">
+                <form>
+                    <p>Contact Us</p>
+                    <h6>Phone no: 91+ 123 456789</h6>
+                    <div className="d-flex flex-column flex-sm-row w-100 gap-2">
+                    <label htmlFor="newsletter1" className="visually-hidden">
+                        Email address
+                    </label>
+                    <input
+                        id="newsletter1"
+                        type="text"
+                        className="form-control"
+                        placeholder="Email address"
+                    />
+                    <button className="btn btn-primary" type="button">
+                        Send
+                    </button>
+                    </div>
+                </form>
+                </div>
+                <p>© 2024 AI Models Company, Inc. All rights reserved.</p>
+            </div>
+            </footer>
+        </div>
+        </div>
     );
 }
