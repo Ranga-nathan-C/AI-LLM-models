@@ -1,6 +1,7 @@
 import ai from "./assets/ai1.jpg";
 import ai1 from "./assets/ai3.jpg";
 import ai4 from "./assets/ai.jpg";
+import ai5 from "./assets/icon-user-15.jpg";
 
 import { useEffect, useState } from "react";
 
@@ -127,18 +128,7 @@ export default function Home() {
                 />
                 </form>
                 <form className="col-md-3   text-end">
-                <a
-                    href="/Login"
-                    className="btn btn-primary btn-sm px-4 login  w-30 h-30 me-md-2   fw-bold"
-                >
-                    Login
-                </a>
-                <a
-                    href="/Signup"
-                    className="btn btn-primary btn-sm px-4  w-30 h-30 me-md-2  fw-bold"
-                >
-                    Sign up
-                </a>
+                <img src={ai5} alt="mdo" width="32" height="32" className="rounded-circle"></img>
                 </form>
             </div>
             </div>
