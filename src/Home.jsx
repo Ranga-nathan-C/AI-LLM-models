@@ -6,16 +6,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-    const [Favourite, setFavourites] = useState([]);
-    const [Like, setLike] = useState([]);
-  
-    const addToFavourite = () => {
-      setFavourites([...Favourite, data]);
-    };
-  
-    const addToLike = () => {
-      setLike([...Like, data]);
-    };
+   
   
 
     const [data, setdata] = useState([]);
@@ -29,7 +20,6 @@ export default function Home() {
             throw new Error("Error fetching data");
             }
             const data = await response.json();
-            console.log(data);
             setdata(data);
         } catch (error) {
             console.error("Error:", error);
@@ -85,21 +75,6 @@ export default function Home() {
                     href="/"
                     >
                     Home
-                    </a>
-                </li>
-                <li className="nav-item nav2">
-                    <a className="nav-link  link-dark" href="/Liked">
-                    Like
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-star mb-1"
-                        viewBox="0 0 16 16"
-                    >
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
-                    </svg>
                     </a>
                 </li>
                 <li className="nav-item nav2">
@@ -255,7 +230,7 @@ export default function Home() {
             <span className="visually-hidden">Next</span>
             </button>
         </div>
-        <div className="grid-container row-sm-12 mt-5 ml-5">
+        <div className="grid-container container row-sm-12 mt-5 ml-5">
             {data.map((data) => (
             <div className="card" key={data.id}>
                 
@@ -265,7 +240,7 @@ export default function Home() {
                     <p className="card-text">{data.desc}</p>
                     <div className="row">
                     <div className="col">
-                        <a className="nav-link spann link-light" href="/Favourite" onClick={addToLike}>
+                        <a className="nav-link spann link-light" >
                         Favourite
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -276,21 +251,6 @@ export default function Home() {
                             viewBox="0 0 16 16"
                         >
                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.920 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                        </svg>
-                        </a>
-                    </div>
-                    <div className="col">
-                        <a className="nav-link spann1 link-light" href="/Liked" onClick={addToFavourite}>
-                        Like
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-star mb-1"
-                            viewBox="0 0 16 16"
-                        >
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
                         </svg>
                         </a>
                     </div>
@@ -387,6 +347,7 @@ export default function Home() {
             </div>
             </footer>
         </div>
-        </div>
-    );
+       </div>
+);
 }
+                

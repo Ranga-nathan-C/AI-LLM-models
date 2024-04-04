@@ -7,6 +7,15 @@
     margin-top: 3px;
     
 }
+.nav3{
+    background-color: rgba(0, 68, 255, 0.775);
+    border-radius: 10px;
+    width: 105px;
+    height: 35px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 3px;
+    
+}
 .nav2{
     margin-left: 10px;
     margin-right: 10px;
@@ -73,7 +82,7 @@
     background-color: #007bff;
     border-radius: 5px;
     margin-bottom: 5px;
-    width: 95px;
+    width: 100px;
     padding: 5px 5px 5px 5px;
 }
 .spann1{
@@ -82,4 +91,20 @@
     margin-bottom: 5px;
     width: 60px;
     padding: 5px 5px 5px 5px;
+}
+.spann3{
+    width: 450px;
+    height: 600px;
+}
+.head{
+    margin: 25px 25px 10px 25px ;
+}
+.space{
+    margin-left: 5px;
+}
+.flex{
+    margin-right: 20px;
+}
+.flex1{
+    margin-left: 5px;
 }
