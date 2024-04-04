@@ -117,15 +117,6 @@ function FavoritePage() {
                 onChange={(e) => setQuery(e.target.value)}
               />
             </form>
-            <form className="col-md-3   text-end">
-              <img
-                src={ai5}
-                alt="mdo"
-                width="32"
-                height="32"
-                className="rounded-circle"
-              ></img>
-            </form>
           </div>
         </div>
       </nav>
