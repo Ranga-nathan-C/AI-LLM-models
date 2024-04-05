@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ai5 from "./assets/icon-user-15.jpg";
+
 
 function FavoritePage() {
   const [data, setdata] = useState([]);
