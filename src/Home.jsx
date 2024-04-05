@@ -52,7 +52,7 @@ export default function Home() {
                 </a>
             </div>
             <button
-                className="navbar-toggler"
+                className="navbar-toggler border border-dark"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarsExample04"
@@ -60,7 +60,7 @@ export default function Home() {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon "></span>
             </button>
 
             <div className="collapse navbar-collapse" id="navbarsExample04">
