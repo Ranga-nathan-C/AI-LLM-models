@@ -1,7 +1,7 @@
 import ai from "./assets/ai1.jpg";
 import ai1 from "./assets/ai3.jpg";
 import ai4 from "./assets/ai.jpg";
-
+import ai5 from "./assets/icon-user-15.jpg";
 
 import { useEffect, useState } from "react";
 
@@ -153,6 +153,23 @@ export default function Home() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
+            </form>
+            <form className="col-md-3    text-end">
+            <a
+                    className=" btn rounded bg-light flex  link-dark "
+                    aria-current="page"
+                    href="/"
+                    >
+                    Logout
+                    </a>
+
+              <img
+                src={ai5}
+                alt="mdo"
+                width="32"
+                height="32"
+                className="rounded-circle mr-2"
+              ></img>
             </form>
           </div>
         </div>

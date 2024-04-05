@@ -85,7 +85,7 @@ function FavoritePage() {
                 <a
                   className="nav-link  nav2  link-dark "
                   aria-current="page"
-                  href="/"
+                  href="/Home"
                 >
                   Home
                 </a>
